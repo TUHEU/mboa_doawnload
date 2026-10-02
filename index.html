@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nav Mboa · download</title>
+  <!-- Font Awesome for clean icons (optional but nice) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #0b2a1f 0%, #1a4a35 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    /* main card – glassmorphism */
+    .download-card {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 3.5rem;
+      padding: 3rem 2.5rem;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(210, 255, 180, 0.1) inset;
+      transition: transform 0.2s ease;
+    }
+
+    .download-card:hover {
+      transform: scale(1.01);
+    }
+
+    /* app logo / header */
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      justify-content: center;
+    }
+
+    .logo-icon {
+      background: #f5c542;
+      width: 70px;
+      height: 70px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.6);
+      transform: rotate(-3deg);
+      border: 2px solid #ffe28c;
+    }
+
+    .logo-icon i {
+      font-size: 2.8rem;
+      color: #1f3d2c;
+      text-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+    }
+
+    .app-name h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff3d1;
+      text-shadow: 0 4px 12px #0a1f14;
+      line-height: 1.1;
+    }
+
+    .app-name .subhead {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #b8e0c5;
+      letter-spacing: 0.4px;
+      margin-top: 0.2rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .subhead i {
+      font-size: 0.9rem;
+      color: #f5c542;
+    }
+
+    /* the three questions */
+    .questions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 1.8rem;
+      margin: 2rem 0 1.5rem;
+      padding: 0.8rem 0;
+      border-top: 1px dashed rgba(245, 197, 66, 0.4);
+      border-bottom: 1px dashed rgba(245, 197, 66, 0.4);
+    }
+
+    .q-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #e6f7e6;
+      font-weight: 500;
+      font-size: 1.15rem;
+    }
+
+    .q-item i {
+      color: #f5c542;
+      font-size: 1.3rem;
+      width: 1.8rem;
+      text-align: center;
+    }
+
+    /* description */
+    .description {
+      text-align: center;
+      color: #d0e8d8;
+      font-size: 1.06rem;
+      line-height: 1.6;
+      margin: 1.5rem 0 2rem;
+      padding: 0 0.5rem;
+    }
+
+    .description strong {
+      color: #ffe28c;
+      font-weight: 600;
+    }
+
+    /* download button wrapper */
+    .download-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .btn-download {
+      background: #f5c542;
+      border: none;
+      padding: 1.3rem 3.5rem;
+      border-radius: 80px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1b3d2a;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      box-shadow: 0 18px 30px -10px #00000080, 0 0 0 2px #ffe28c inset, 0 0 0 4px #1a4a35 inset;
+      transition: all 0.2s ease;
+      letter-spacing: 0.5px;
+      width: 100%;
+      justify-content: center;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .btn-download i {
+      font-size: 2rem;
+      color: #1b3d2a;
+      transition: transform 0.2s;
+    }
+
+    .btn-download:hover {
+      background: #ffd966;
+      box-shadow: 0 22px 35px -8px black, 0 0 0 2px #fff0b5 inset, 0 0 0 4px #1a4a35 inset;
+      transform: translateY(-3px);
+    }
+
+    .btn-download:hover i {
+      transform: translateY(4px);
+    }
+
+    .btn-download:active {
+      transform: translateY(2px);
+      box-shadow: 0 8px 15px -5px black, 0 0 0 2px #ffe28c inset, 0 0 0 4px #1a4a35 inset;
+    }
+
+    /* file info / apk name */
+    .file-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      color: #b8d9c5;
+      font-size: 0.95rem;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      margin-top: 0.4rem;
+      border: 1px solid rgba(245, 197, 66, 0.3);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .file-info i {
+      color: #f5c542;
+    }
+
+    /* small note about "same path" — playful */
+    .path-note {
+      text-align: center;
+      color: #94b8a3;
+      font-size: 0.85rem;
+      margin-top: 1.8rem;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+    }
+
+    .path-note i {
+      color: #f5c542;
+      opacity: 0.8;
+    }
+
+    /* hidden iframe for download (optional, not necessary but keeps things clean) */
+    .hidden-iframe {
+      display: none;
+    }
+
+    /* responsive */
+    @media (max-width: 580px) {
+      .download-card {
+        padding: 2rem 1.5rem;
+        border-radius: 2.5rem;
+      }
+
+      .logo-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+
+      .app-name h1 {
+        font-size: 2.4rem;
+      }
+
+      .questions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .q-item {
+        font-size: 1rem;
+      }
+
+      .btn-download {
+        font-size: 1.3rem;
+        padding: 1.1rem 2rem;
+      }
+
+      .btn-download i {
+        font-size: 1.7rem;
+      }
+
+      .file-info {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="download-card">
+    <!-- logo + name -->
+    <div class="logo-section">
+      <div class="logo-icon">
+        <i class="fas fa-map-signs"></i>
+      </div>
+      <div class="app-name">
+        <h1>Nav Mboa</h1>
+        <div class="subhead">
+          <i class="fas fa-compass"></i> 
+          <span>explore · discover · arrive</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- the three questions -->
+    <div class="questions">
+      <div class="q-item"><i class="fas fa-location-dot"></i> Where am I?</div>
+      <div class="q-item"><i class="fas fa-binoculars"></i> What is around me?</div>
+      <div class="q-item"><i class="fas fa-route"></i> How do I get there?</div>
+    </div>
+
+    <!-- description -->
+    <div class="description">
+      <strong>Nav Mboa</strong> is your ultimate tourism & exploration companion. 
+      Discover hidden gems, local secrets and navigate with confidence.
+    </div>
+
+    <!-- download button & action -->
+    <div class="download-area">
+      <button id="downloadBtn" class="btn-download">
+        <i class="fas fa-download"></i> Download APK
+      </button>
+      <div class="file-info">
+        <i class="fas fa-box-archive"></i> 
+        <span>nav-mboa.apk · 24.6 MB</span>
+      </div>
+    </div>
+
+    <!-- subtle note that it's in the same path -->
+    <div class="path-note">
+      <i class="fas fa-folder-open"></i>
+      <span>File is in the same folder as this page — click to download</span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const downloadBtn = document.getElementById('downloadBtn');
+
+      // The APK file is expected in the same directory as this HTML file.
+      // This name should match your actual APK file name.
+      const APK_FILENAME = 'nav-mboa.apk';   // ← change if your APK has a different name
+
+      // Function to trigger download
+      function triggerApkDownload() {
+        // Create a temporary anchor element
+        const link = document.createElement('a');
+        link.href = APK_FILENAME;          // relative path → same folder as this html
+        link.download = APK_FILENAME;       // tells browser to download with this name
+
+        // (Optional) set type – helps some browsers but not necessary
+        link.type = 'application/vnd.android.package-archive';
+
+        // Append to body, click, and remove
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Small UX feedback: change button text briefly (optional)
+        const originalText = downloadBtn.innerHTML;
+        downloadBtn.innerHTML = '<i class="fas fa-check-circle"></i> Download started!';
+        downloadBtn.style.background = '#b8e0a0';
+        downloadBtn.style.color = '#1f3d2c';
+
+        setTimeout(() => {
+          downloadBtn.innerHTML = originalText;
+          downloadBtn.style.background = '#f5c542';
+          downloadBtn.style.color = '#1b3d2a';
+        }, 2500);
+      }
+
+      // Add click listener to button
+      downloadBtn.addEventListener('click', function(e) {
+        e.preventDefault();   // prevent any default (like scroll)
+        triggerApkDownload();
+      });
+
+      // Also allow clicking the file-info area? No, keep it simple.
+      // But we can also add a fallback: if the APK doesn't exist, browser will show error.
+      // We'll keep it as is.
+
+      // Extra: if someone clicks the "file info" text, also trigger download? 
+      // Could be nice but not necessary. Let's add it to the file info span as well.
+      const fileInfoDiv = document.querySelector('.file-info');
+      if (fileInfoDiv) {
+        fileInfoDiv.style.cursor = 'pointer';
+        fileInfoDiv.addEventListener('click', function(e) {
+          e.preventDefault();
+          triggerApkDownload();
+        });
+      }
+
+      // Optional: keyboard accessibility (space/enter on button already works)
+      // but we can also make the file info focusable? skip for simplicity
+    })();
+  </script>
+</body>
+</html>
